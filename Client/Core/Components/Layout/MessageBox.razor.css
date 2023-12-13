@@ -1,0 +1,1 @@
+.main{flex-grow:1;display:flex;padding:0.625rem;flex-direction:column}.header{display:flex}.title{flex-grow:1}.body{flex-grow:1;display:flex;overflow:auto;max-width:90vw;white-space:pre;margin:0.625rem 0}.footer{display:flex;justify-content:center}/*# sourceMappingURL=MessageBox.razor.css.map */
