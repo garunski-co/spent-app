@@ -23,10 +23,10 @@
         <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js"/>
     </ItemGroup>
 
-    <ItemGroup>
+    <!-- <ItemGroup>
         <Watch Include="..\Core\**\*.razor"/>
         <Watch Include="..\Core\**\*.css" Exclude="node_modules\**\*;**\*.css.map;obj\**\*;bin\**\*"/>
-    </ItemGroup>
+    </ItemGroup> -->
 
     <ItemGroup>
         <PackageReference Include="Bit.Bswup" Version="8.2.0"/>

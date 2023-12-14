@@ -1,0 +1,16 @@
+version: '3'
+tasks:
+  clean:
+    cmds:
+      - ./clean.sh
+    silent: true
+  generate-cert:
+    silent: true
+    cmds:
+      - openssl genpkey -algorithm RSA -out private.key
+      - openssl req -new -key private.key -out certificate.csr -subj "/CN=IdentityServerCN" -sha512
+      - openssl x509 -req -days 1825 -in certificate.csr -signkey private.key -out certificate.crt -sha512
+      - openssl pkcs12 -export -out ./Server/IdentityCertificate.pfx -inkey private.key -in certificate.crt -password pass:!Sp3N7N0w!TSg0n3
+      - defer: rm certificate.csr certificate.crt private.key
+    generates:
+      - Server/IdentityCertificate.pfx
