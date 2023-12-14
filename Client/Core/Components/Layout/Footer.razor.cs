@@ -1,4 +1,5 @@
-﻿using Spent.Client.Core.Extensions;
+﻿using Microsoft.Extensions.Logging;
+using Spent.Client.Core.Extensions;
 
 namespace Spent.Client.Core.Components.Layout;
 
@@ -6,7 +7,7 @@ public partial class Footer
 {
     [AutoInject]
     private BitThemeManager _bitThemeManager = default!;
-
+    
     private BitDropdownItem<string>[] _cultures = default!;
 
     private string? _selectedCulture;

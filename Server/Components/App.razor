@@ -1,12 +1,19 @@
 ﻿@using Spent.Server.Extensions
 @using Spent.Client.Web.Components
+@attribute [StreamRendering]
+
+@code {
+  [CascadingParameter]
+  private HttpContext HttpContext { get; set; } = default!;
+}
+
 @{
   var noPrerender = HttpContext.Request.Query["no-prerender"].Count > 0;
   var renderMode = noPrerender ? AppRenderMode.NoPrerenderBlazorWebAssembly : AppRenderMode.Current;
 }
 
 <!DOCTYPE html>
-<html bit-theme="dark">
+<html>
 
 <head>
   <base href="/" />
@@ -35,7 +42,7 @@
 
 @if (HttpContext.Request.IsCrawlerClient() is false)
 {
-  @if (AppRenderMode.PwaEnabled)
+  if (AppRenderMode.PwaEnabled)
   {
     <Script src="_framework/blazor.web.js" autostart="false"></Script>
     <Script src="_content/Bit.Bswup/bit-bswup.js"

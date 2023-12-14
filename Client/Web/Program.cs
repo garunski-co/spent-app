@@ -19,6 +19,8 @@ builder.Services.AddTransient(sp => new HttpClient(sp.GetRequiredService<Request
 
 builder.Services.AddClientWebServices();
 
+
+
 var host = builder.Build();
 
 #if MultilingualEnabled

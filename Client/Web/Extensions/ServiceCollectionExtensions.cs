@@ -1,5 +1,6 @@
 ﻿using Spent.Client.Core.Extensions;
 using Spent.Client.Web.Services;
+using Microsoft.Extensions.Logging;
 
 namespace Spent.Client.Web.Extensions;
 
@@ -13,6 +14,8 @@ public static class ServiceCollectionExtensions
         services.AddTransient<IExceptionHandler, WebExceptionHandler>();
 
         services.AddClientSharedServices();
+
+        services.AddLogging(builder => builder.AddConsole());
 
         return services;
     }

@@ -1,6 +1,7 @@
 ﻿@page "/not-authorized"
 @using Spent.Commons.Extensions
 @inherits AppComponentBase
+@attribute [AllowAnonymous]
 
 <AuthorizeView>
   <div class="main">
