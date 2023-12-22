@@ -438,8 +438,8 @@ Please confirm your email by clicking on the link.</value>
     <value>Sign in as different user</value>
   </data>
     <data name="YouAreSignInAs" xml:space="preserve">
-    <value>You're sign in as</value>
-  </data>
+      <value>You're signed in as</value>
+    </data>
     <data name="ForgotPasswordLink" xml:space="preserve">
     <value>Forgot password?</value>
   </data>
@@ -454,5 +454,8 @@ Please confirm your email by clicking on the link.</value>
   </data>
     <data name="Category" xml:space="preserve">
       <value>Category</value>
+    </data>
+    <data name="ApplicationName" xml:space="preserve">
+      <value>Spent</value>
     </data>
 </root>

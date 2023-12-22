@@ -3,7 +3,7 @@
 [DtoResourceType(typeof(AppStrings))]
 public class UserDto
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
 
     // By default, username gets filled from email during signup in Api/Models/Mapper.cs class.
     [Required(ErrorMessage = nameof(AppStrings.RequiredAttribute_ValidationError))]
@@ -31,4 +31,6 @@ public class UserDto
     public DateTimeOffset? BirthDate { get; set; }
 
     public string? ProfileImageName { get; set; }
+    
+    public string? PlaidAccessTokenValue { get; set; }
 }

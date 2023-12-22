@@ -5,6 +5,8 @@ public class AppSettings
     public IdentitySettings IdentitySettings { get; init; } = default!;
 
     public EmailSettings EmailSettings { get; init; } = default!;
+    
+    public PlaidSettings PlaidSettings { get; init; } = default!;
 
     public HealthCheckSettings HealthCheckSettings { get; init; } = default!;
 

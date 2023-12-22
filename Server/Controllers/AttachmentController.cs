@@ -8,7 +8,7 @@ namespace Spent.Server.Controllers;
 
 [Route("api/[controller]/[action]")]
 [ApiController]
-public partial class AttachmentController : AppControllerBase
+public partial class AttachmentController : AppControllerBase<AttachmentController>
 {
     [AutoInject]
     private readonly UserManager<User> _userManager = default!;

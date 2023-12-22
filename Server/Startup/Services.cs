@@ -1,6 +1,7 @@
 ﻿using System.IO.Compression;
 using System.Net;
 using System.Net.Mail;
+using Going.Plaid;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.OData;
@@ -27,6 +28,8 @@ public static class Services
         services.AddClientSharedServices();
 
         services.AddCors();
+        
+        services.AddLogging(builder => builder.AddConsole());
 
         services
             .AddControllers()
@@ -82,6 +85,8 @@ public static class Services
 
         services.AddIdentity(configuration);
 
+        services.AddPlaid(configuration.GetSection($"{nameof(AppSettings)}:{nameof(PlaidSettings)}"));
+        
         services.AddHealthChecks(env, configuration);
 
         services.AddTransient<HtmlRenderer>();

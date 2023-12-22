@@ -6,12 +6,12 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
 {
     public void Configure(EntityTypeBuilder<User> builder)
     {
-        const string userName = "test@bitplatform.dev";
+        const string userName = "garun@garunski.com";
 
         builder.HasData([
             new()
             {
-                Id = 1,
+                Id = Guid.NewGuid(),
                 EmailConfirmed = true,
                 LockoutEnabled = true,
                 Gender = Gender.Other,
@@ -21,10 +21,10 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
                 Email = userName,
                 NormalizedUserName = userName.ToUpperInvariant(),
                 NormalizedEmail = userName.ToUpperInvariant(),
-                SecurityStamp = "959ff4a9-4b07-4cc1-8141-c5fc033daf83",
-                ConcurrencyStamp = "315e1a26-5b3a-4544-8e91-2760cd28e231",
+                SecurityStamp = "OMV4VEUKRXPGCP6HAPM5ZO36Y2VYCJRO",
+                ConcurrencyStamp = "d3e24da3-6afb-4a21-ad55-7edaa33dae36",
                 PasswordHash =
-                    "AQAAAAIAAYagAAAAEP0v3wxkdWtMkHA3Pp5/JfS+42/Qto9G05p2mta6dncSK37hPxEHa3PGE4aqN30Aag==" // 123456
+                    "AQAAAAIAAYagAAAAEKa6kiu3Rw46KDmV0at9YifdHr2OdulDNuXrDjf2I8UOS62VqgjkBl0Ke/ruTHgA2w==" // 123456
             }
         ]);
     }

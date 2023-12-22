@@ -231,15 +231,6 @@
     <data name="UserImageCouldNotBeFound" xml:space="preserve">
     <value>L'image de l'utilisateur est introuvable</value>
   </data>
-    <data name="CategoryCouldNotBeFound" xml:space="preserve">
-    <value>L'entité de catégorie est introuvable</value>
-  </data>
-    <data name="ProductCouldNotBeFound" xml:space="preserve">
-    <value>L'entité du produit est introuvable</value>
-  </data>
-    <data name="CategoryNotEmpty" xml:space="preserve">
-    <value>Cette catégorie contient certains produits, vous ne pouvez donc pas la supprimer</value>
-  </data>
     <data name="Error" xml:space="preserve">
     <value>Erreur</value>
   </data>
@@ -270,27 +261,6 @@
     <data name="Price" xml:space="preserve">
     <value>Prix</value>
   </data>
-    <data name="Categories" xml:space="preserve">
-    <value>Catégories</value>
-  </data>
-    <data name="ProductCategory" xml:space="preserve">
-    <value>Catégorie de produit</value>
-  </data>
-    <data name="Products" xml:space="preserve">
-    <value>Des produits</value>
-  </data>
-    <data name="AreYouSureWannaDeleteCategory" xml:space="preserve">
-    <value>Etes-vous sûr de vouloir supprimer la catégorie {0}</value>
-  </data>
-    <data name="AreYouSureWannaDeleteProduct" xml:space="preserve">
-    <value>Êtes-vous sûr de vouloir supprimer le produit {0}</value>
-  </data>
-    <data name="DeleteCategory" xml:space="preserve">
-    <value>Supprimer la catégorie</value>
-  </data>
-    <data name="DeleteProduct" xml:space="preserve">
-    <value>Supprimer le produit</value>
-  </data>
     <data name="YouNeedToSignIn" xml:space="preserve">
     <value>Vous devez être connecté pour continuer.</value>
   </data>
@@ -303,20 +273,11 @@
     <data name="EmailAlreadyConfirmed" xml:space="preserve">
     <value>Votre email est déjà confirmé.</value>
   </data>
-    <data name="TodoTitle" xml:space="preserve">
-    <value>Faire</value>
-  </data>
     <data name="Title" xml:space="preserve">
     <value>Titre</value>
   </data>
-    <data name="ToDoItemCouldNotBeFound" xml:space="preserve">
-    <value>L'élément à faire est introuvable</value>
-  </data>
     <data name="AreYouSureWannaDelete" xml:space="preserve">
     <value>Etes-vous sûr de vouloir supprimer {0}</value>
-  </data>
-    <data name="DeleteTodoItem" xml:space="preserve">
-    <value>Supprimer l'élément à faire</value>
   </data>
     <data name="Home" xml:space="preserve">
     <value>Maison</value>
@@ -438,65 +399,8 @@
     <data name="Yes" xml:space="preserve">
     <value>Oui</value>
   </data>
-    <data name="TodoAddPlaceholder" xml:space="preserve">
-    <value>Ajouter une tâche</value>
-  </data>
-    <data name="TodoSearchPlaceholder" xml:space="preserve">
-    <value>Rechercher des choses à faire...</value>
-  </data>
     <data name="SelectBirthDate" xml:space="preserve">
     <value>Sélectionnez votre date de naissance</value>
-  </data>
-    <data name="SelectCategory" xml:space="preserve">
-    <value>Choisir une catégorie</value>
-  </data>
-    <data name="TotalCategories" xml:space="preserve">
-    <value>Catégories totales</value>
-  </data>
-    <data name="TotalProducts" xml:space="preserve">
-    <value>Produits totaux</value>
-  </data>
-    <data name="EditCategory" xml:space="preserve">
-    <value>Modifier la catégorie</value>
-  </data>
-    <data name="AddCategory" xml:space="preserve">
-    <value>Nouvelle catégorie</value>
-  </data>
-    <data name="CategoriesPageTitle" xml:space="preserve">
-    <value>Catégories</value>
-  </data>
-    <data name="EnterCategoryName" xml:space="preserve">
-    <value>Entrez le nom de la catégorie</value>
-  </data>
-    <data name="EnterProductName" xml:space="preserve">
-    <value>Entrez le nom du produit</value>
-  </data>
-    <data name="Last30DaysCategoryCount" xml:space="preserve">
-    <value>Nombre de catégories des 30 derniers jours</value>
-  </data>
-    <data name="ProductSales" xml:space="preserve">
-    <value>Ventes de produits</value>
-  </data>
-    <data name="ProductSalesText" xml:space="preserve">
-    <value>Ce graphique montre le numéro de vente de chaque produit.</value>
-  </data>
-    <data name="SearchOnName" xml:space="preserve">
-    <value>Rechercher sur le nom</value>
-  </data>
-    <data name="ProductsCountPerCategoryChart" xml:space="preserve">
-    <value>Tableau du nombre de produits par catégorie</value>
-  </data>
-    <data name="ProductsCountPerCategoryChartText" xml:space="preserve">
-    <value>Ce graphique montre le nombre de produits dans chaque catégorie.</value>
-  </data>
-    <data name="ProductsPageTitle" xml:space="preserve">
-    <value>Des produits</value>
-  </data>
-    <data name="ProductsPercentagePerCategory" xml:space="preserve">
-    <value>Pourcentage de produits par catégorie</value>
-  </data>
-    <data name="ProductsPercentagePerCategoryText" xml:space="preserve">
-    <value>Ce graphique montre le pourcentage de produits dans chaque catégorie.</value>
   </data>
     <data name="SignIn" xml:space="preserve">
     <value>Se connecter</value>
@@ -509,12 +413,6 @@
   </data>
     <data name="ResetPassword" xml:space="preserve">
     <value>Réinitialiser le mot de passe</value>
-  </data>
-    <data name="NoTodos" xml:space="preserve">
-    <value>Aucune tâche pour l'instant</value>
-  </data>
-    <data name="AddProduct" xml:space="preserve">
-    <value>Ajouter un produit</value>
   </data>
     <data name="Action" xml:space="preserve">
     <value>Action</value>
@@ -534,9 +432,6 @@
     <data name="CustomColor" xml:space="preserve">
     <value>Couleur personnalisée</value>
   </data>
-    <data name="DefaultColorPicker" xml:space="preserve">
-    <value>Sélecteur de couleurs par défaut</value>
-  </data>
     <data name="Delete" xml:space="preserve">
     <value>Supprimer</value>
   </data>
@@ -546,17 +441,8 @@
     <data name="ForgotPasswordLink" xml:space="preserve">
     <value>Mot de passe oublié?</value>
   </data>
-    <data name="Last30DaysProductCount" xml:space="preserve">
-    <value>Nombre de produits des 30 derniers jours</value>
-  </data>
     <data name="GenderFemale" xml:space="preserve">
     <value>Femelle</value>
-  </data>
-    <data name="EditProduct" xml:space="preserve">
-    <value>Modifier le produit</value>
-  </data>
-    <data name="Dashboard" xml:space="preserve">
-    <value>Tableau de bord</value>
   </data>
     <data name="RememberMe" xml:space="preserve">
     <value>Souviens-toi de moi?</value>
@@ -564,4 +450,7 @@
     <data name="Update" xml:space="preserve">
     <value>Mise à jour</value>
   </data>
+    <data name="ApplicationName" xml:space="preserve">
+      <value>Spent</value>
+    </data>
 </root>

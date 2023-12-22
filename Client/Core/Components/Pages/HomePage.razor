@@ -1,14 +1,132 @@
 ﻿@page "/"
+@using Spent.Commons.Dtos.Identity
+@using Microsoft.AspNetCore.Components.Web
+@using Spent.Client.Core.Extensions
+@using System.Text.Json
 @inherits AppComponentBase
+@inject ILogger<HomePage> Logger
 
 <PageTitle>@Localizer[nameof(AppStrings.HomeTitle)]</PageTitle>
 
+
+@code {
+
+  private bool _isLoading = false;
+
+  private UserDto _user = new();
+
+  protected override async Task OnInitAsync()
+  {
+    _isLoading = true;
+
+    try
+    {
+      _user = await PrerenderStateService.GetValue(
+        $"{nameof(HomePage)}-{nameof(_user)}",
+        () => HttpClient.GetFromJsonAsync("User/GetCurrentUser", AppJsonContext.Default.UserDto)) ?? new();
+      _isLoading = false;
+    }
+    catch
+    {
+      _isLoading = false;
+    }
+
+    await base.OnInitAsync();
+  }
+  
+  private async Task<string> CreateLinkTokenAsync()
+  {
+    _isLoading = true;
+    var createresponse = await HttpClient.GetAsync($"plaid/Link/CreateLinkToken");
+
+    var linkToken = await createresponse.Content.ReadAsStringAsync();
+    _isLoading = false;
+    if (linkToken is null)
+      throw new ApplicationException("Failed to parse CreateLinkToken result");
+
+    return linkToken;
+  }
+  
+  private async Task<string> InvokeLinkJsAsync(string linkToken)
+  {
+    var result = await JsRuntime.LaunchLink(linkToken);
+
+    if (result is null)
+      throw new ApplicationException("Calling link failed");
+    
+    Logger.LogInformation("Result is : {0}", result);
+
+    // var link_result = System.Text.Json.JsonSerializer.Deserialize<LinkResult>(result);
+
+    // if (link_result is null)
+    //   throw new ApplicationException("Failed to parse link result");
+
+    // if (link_result.ok != true)
+    // {
+    //   await Http.PostAsJsonAsync<LinkResult>("link/LinkFail",link_result);
+    //
+    //   // TODO: Create new PlaidErrorException which has a PlaidError as a payload
+    //   if (link_result.error is not null)
+    //   {
+    //     PrettyError = link_result.error;
+    //     throw new ApplicationException();
+    //   }
+    //   else
+    //     throw new ApplicationException($"Link aborted. Status: {link_result.metadata?.status ?? "none"}");
+    // }
+
+    return result;
+  }
+  
+  private async Task LaunchLink()
+  {
+    try
+    {
+        var linkToken = await CreateLinkTokenAsync();
+        var linkResult = await InvokeLinkJsAsync(linkToken);
+        var dto = JsonSerializer.Deserialize<LinkResultDto>(linkResult);
+        var createresponse = await HttpClient.PostAsJsonAsync("plaid/Link/ExchangePublicToken", dto);
+        _isLoading = false;
+    }
+    catch (Exception ex)
+    {
+      Logger.LogError("exception: {0}", ex.Message);
+    }
+  }
+
+}
+
 <div class="page-container">
   <section class="page-section hero-section">
-    <h1 class="hero-section-title">@Localizer[nameof(AppStrings.HomeTitle)]</h1>
 
-    <div class="hero-section-desc">@Localizer[nameof(AppStrings.HomeMessage)]</div>
-  
-    i am now logged in
+    @if (_isLoading)
+    {
+      <div class="loading-container">
+        <BitSpinner Size="BitSpinnerSize.Large"></BitSpinner>
+      </div>
+    }
+    else
+    {
+      <text>Logged In as </text>@_user.FullName
+
+      if(!string.IsNullOrEmpty(_user.PlaidAccessTokenValue))
+      {
+
+        <div>
+          <h3>dont share! Token</h3>: @_user.PlaidAccessTokenValue</div>
+
+      }
+      else
+      {
+        Logger.LogInformation("Need to get the link");
+
+        <BitButton ButtonStyle="BitButtonStyle.Standard"
+                   OnClick="@(() => LaunchLink())">
+          Connect Accounts
+        </BitButton>
+
+      }
+    }
   </section>
 </div>
+

@@ -698,5 +698,11 @@ namespace Spent.Commons.Resources {
                 return ResourceManager.GetString("Category", resourceCulture);
             }
         }
+        
+        public static string ApplicationName {
+            get {
+                return ResourceManager.GetString("ApplicationName", resourceCulture);
+            }
+        }
     }
 }

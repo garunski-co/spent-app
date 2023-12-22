@@ -1,5 +1,6 @@
 ﻿@page "/edit-profile"
 @inherits AppComponentBase
+@inject ILogger<EditProfilePage> Logger
 
 <PageTitle>@Localizer[nameof(AppStrings.EditProfileTitle)]</PageTitle>
 
@@ -91,6 +92,9 @@
                                   AriaLabel="@Localizer[nameof(AppStrings.GenderOther)]" />
           </BitChoiceGroup>
         </div>
+        
+        <div>Plaid</div>
+        <h3>@_user.PlaidAccessTokenValue</h3>
 
         <BitButton IsLoading="_isSaving"
                    ButtonType="BitButtonType.Submit"

@@ -15,7 +15,9 @@ public static class ServiceCollectionExtensions
 
         services.AddClientSharedServices();
 
+#pragma warning disable CA1416
         services.AddLogging(builder => builder.AddConsole());
+#pragma warning restore CA1416
 
         return services;
     }

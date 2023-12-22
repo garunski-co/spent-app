@@ -83,52 +83,52 @@ BitTheme.init({
         }
     }
 });
+var linkPromise = function (link_token) {
+    return new Promise(function (resolve) {
+        // Needs to match C# Shared.LinkResult class
+        var result = {
+            ok: false,
+            public_token: "**FAIL**",
+            error: null,
+            metadata: null
+        };
+        var handler = Plaid.create({
+            token: link_token,
+            onLoad: function () {
+                // Optional, called when Link loads
+            },
+            onSuccess: function (public_token, metadata) {
+                result.ok = true;
+                result.public_token = public_token;
+                result.metadata = metadata;
+                resolve(result);
+            },
+            onExit: function (error, metadata) {
+                // The user exited the Link flow.
+                result.error = error;
+                result.metadata = metadata;
+                resolve(result);
+            },
+            onEvent: function (eventName, metadata) {
+                // Optionally capture Link flow events, streamed through
+                // this callback as your users connect an Item to Plaid.
+            }
+        });
+        handler.open();
+    });
+};
 var Link = /** @class */ (function () {
     function Link() {
     }
-    Link.launchLink = function (linkToken) {
+    Link.launch_link = function (link_token) {
         return __awaiter(this, void 0, void 0, function () {
-            var linkPromise, _a, _b;
-            return __generator(this, function (_c) {
-                switch (_c.label) {
-                    case 0:
-                        linkPromise = function () {
-                            return new Promise(function (resolve) {
-                                // Needs to match C# Shared.LinkResult class
-                                var result = {
-                                    success: false,
-                                    publicToken: null,
-                                    error: null,
-                                    metadata: null
-                                };
-                                var handler = Plaid.create({
-                                    token: linkToken,
-                                    onLoad: function () {
-                                        // Optional, called when Link loads
-                                    },
-                                    onSuccess: function (publicToken, metadata) {
-                                        result.success = true;
-                                        result.publicToken = publicToken;
-                                        result.metadata = metadata;
-                                        resolve(result);
-                                    },
-                                    onExit: function (error, metadata) {
-                                        // The user exited the Link flow.
-                                        result.error = error;
-                                        result.metadata = metadata;
-                                        resolve(result);
-                                    },
-                                    onEvent: function (eventName, metadata) {
-                                        // Optionally capture Link flow events, streamed through
-                                        // this callback as your users connect an Item to Plaid.
-                                    }
-                                });
-                                handler.open();
-                            });
-                        };
-                        _b = (_a = JSON).stringify;
-                        return [4 /*yield*/, linkPromise()];
-                    case 1: return [2 /*return*/, _b.apply(_a, [_c.sent()])];
+            var outcome;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, linkPromise(link_token)];
+                    case 1:
+                        outcome = _a.sent();
+                        return [2 /*return*/, JSON.stringify(outcome)];
                 }
             });
         });

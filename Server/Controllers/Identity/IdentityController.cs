@@ -15,7 +15,7 @@ namespace Spent.Server.Controllers.Identity;
 [Microsoft.AspNetCore.Mvc.Route("api/[controller]/[action]")]
 [ApiController]
 [AllowAnonymous]
-public partial class IdentityController : AppControllerBase
+public partial class IdentityController : AppControllerBase<IdentityController>
 {
     [AutoInject]
     private readonly IOptionsMonitor<BearerTokenOptions> _bearerTokenOptions = default!;

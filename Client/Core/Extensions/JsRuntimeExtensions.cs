@@ -40,4 +40,9 @@ public static class JsRuntimeExtensions
     {
         await jsRuntime.InvokeVoidAsync("App.removeCookie", key);
     }
+    
+    public static async Task<string> LaunchLink(this IJSRuntime jsRuntime, string linkToken)
+    {
+        return await jsRuntime.InvokeAsync<string>("Link.launchLink", linkToken);
+    }
 }

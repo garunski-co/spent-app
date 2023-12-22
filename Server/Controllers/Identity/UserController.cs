@@ -6,11 +6,11 @@ namespace Spent.Server.Controllers.Identity;
 
 [Route("api/[controller]/[action]")]
 [ApiController]
-public partial class UserController : AppControllerBase
+public partial class UserController : AppControllerBase<UserController>
 {
     [AutoInject]
     private readonly UserManager<User> _userManager = default!;
-
+    
     [HttpGet]
     public async Task<UserDto> GetCurrentUser(CancellationToken cancellationToken)
     {

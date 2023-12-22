@@ -19,4 +19,5 @@ namespace Spent.Commons.Dtos;
 [JsonSerializable(typeof(SendConfirmationEmailRequestDto))]
 [JsonSerializable(typeof(SendResetPasswordEmailRequestDto))]
 [JsonSerializable(typeof(ResetPasswordRequestDto))]
+[JsonSerializable(typeof(LinkResultDto))]
 public partial class AppJsonContext : JsonSerializerContext;

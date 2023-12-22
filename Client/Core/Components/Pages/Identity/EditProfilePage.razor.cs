@@ -1,4 +1,5 @@
-﻿using Spent.Client.Core.Extensions;
+﻿using Microsoft.Extensions.Logging;
+using Spent.Client.Core.Extensions;
 using Spent.Commons.Dtos.Identity;
 
 namespace Spent.Client.Core.Components.Pages.Identity;
@@ -59,7 +60,6 @@ public partial class EditProfilePage
     private async Task LoadEditProfileData()
     {
         _user = await GetCurrentUser() ?? new();
-
         UpdateEditProfileData();
     }
 

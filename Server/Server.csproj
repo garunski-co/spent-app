@@ -4,11 +4,13 @@
         <TargetFramework>net8.0</TargetFramework>
         <AssemblyName>Spent.Server</AssemblyName>
         <RootNamespace>Spent.Server</RootNamespace>
-    </PropertyGroup>
+      <UserSecretsId>b771ff78-b941-4fc0-bc3b-23328f20e410</UserSecretsId>
+  </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="JetBrains.Annotations" Version="2023.3.0"/>
-        <PackageReference Include="Magick.NET-Q16-AnyCPU" Version="13.4.0"/>
+        <PackageReference Include="Going.Plaid" Version="6.13.0" />
+        <PackageReference Include="JetBrains.Annotations" Version="2023.3.0" />
+        <PackageReference Include="Magick.NET-Q16-AnyCPU" Version="13.4.0" />
         <PackageReference Include="Bit.CodeAnalyzers" Version="8.2.0">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -17,65 +19,65 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="FluentEmail.Smtp" Version="3.0.2"/>
+        <PackageReference Include="FluentEmail.Smtp" Version="3.0.2" />
 
-        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0"/>
-        <PackageReference Include="Microsoft.AspNetCore.DataProtection.EntityFrameworkCore" Version="8.0.0"/>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
+        <PackageReference Include="Microsoft.AspNetCore.DataProtection.EntityFrameworkCore" Version="8.0.0" />
 
-        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.0"/>
-        <PackageReference Include="Microsoft.AspNetCore.OData" Version="8.2.3"/>
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.0" />
+        <PackageReference Include="Microsoft.AspNetCore.OData" Version="8.2.3" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
 
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0"/>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.0"/>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0"/>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.0"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.0" />
 
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="8.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="8.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
-        <PackageReference Include="MimeTypeMapOfficial" Version="1.0.17"/>
-        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.0"/>
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0"/>
-        <PackageReference Include="AspNetCore.HealthChecks.System" Version="7.0.0"/>
-        <PackageReference Include="AspNetCore.HealthChecks.UI" Version="7.0.2"/>
-        <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="7.1.0"/>
-        <PackageReference Include="AspNetCore.HealthChecks.UI.InMemory.Storage" Version="7.0.0"/>
-        <PackageReference Include="AspNetCore.HealthChecks.Network" Version="7.0.0"/>
-        <PackageReference Include="Riok.Mapperly" Version="3.2.0"/>
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.0"/>
+        <PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.0" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+        <PackageReference Include="AspNetCore.HealthChecks.System" Version="7.0.0" />
+        <PackageReference Include="AspNetCore.HealthChecks.UI" Version="7.0.2" />
+        <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="7.1.0" />
+        <PackageReference Include="AspNetCore.HealthChecks.UI.InMemory.Storage" Version="7.0.0" />
+        <PackageReference Include="AspNetCore.HealthChecks.Network" Version="7.0.0" />
+        <PackageReference Include="Riok.Mapperly" Version="3.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.0" />
     </ItemGroup>
 
     <ItemGroup>
-        <Using Include="Microsoft.AspNetCore.Mvc"/>
-        <Using Include="Microsoft.Extensions.Options"/>
-        <Using Include="Microsoft.AspNetCore.Identity"/>
-        <Using Include="Microsoft.EntityFrameworkCore"/>
-        <Using Include="Microsoft.AspNetCore.OData.Query"/>
-        <Using Include="Microsoft.AspNetCore.Authorization"/>
-        <Using Include="Microsoft.EntityFrameworkCore.Migrations"/>
-        <Using Include="Microsoft.EntityFrameworkCore.Metadata.Builders"/>
-        <Using Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore"/>
-        <Using Include="Spent.Server.Data"/>
-        <Using Include="Spent.Server.Mappers"/>
-        <Using Include="Spent.Commons.Enums"/>
+        <Using Include="Microsoft.AspNetCore.Mvc" />
+        <Using Include="Microsoft.Extensions.Options" />
+        <Using Include="Microsoft.AspNetCore.Identity" />
+        <Using Include="Microsoft.EntityFrameworkCore" />
+        <Using Include="Microsoft.AspNetCore.OData.Query" />
+        <Using Include="Microsoft.AspNetCore.Authorization" />
+        <Using Include="Microsoft.EntityFrameworkCore.Migrations" />
+        <Using Include="Microsoft.EntityFrameworkCore.Metadata.Builders" />
+        <Using Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
+        <Using Include="Spent.Server.Data" />
+        <Using Include="Spent.Server.Mappers" />
+        <Using Include="Spent.Commons.Enums" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Commons\Commons.csproj"/>
-        <ProjectReference Include="..\Client\Core\Core.csproj"/>
-        <ProjectReference Include="..\Client\Web\Web.csproj"/>
+        <ProjectReference Include="..\Commons\Commons.csproj" />
+        <ProjectReference Include="..\Client\Core\Core.csproj" />
+        <ProjectReference Include="..\Client\Web\Web.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include=".config\dotnet-tools.json"/>
+        <Content Include=".config\dotnet-tools.json" />
         <Compile Update="**\*.Designer.cs">
             <DesignTime>True</DesignTime>
             <AutoGen>True</AutoGen>
