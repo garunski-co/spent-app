@@ -18,14 +18,14 @@ public partial class LinkController : AppControllerBase<LinkController>
     [HttpGet]
     public async Task<string> CreateLinkToken(CancellationToken cancellationToken)
     {
+        //TODO: tie in the CultureManager to get the current culture and convert to the language enum
         var response = await _client.LinkTokenCreateAsync(
             new LinkTokenCreateRequest
             {
                 User = new LinkTokenCreateRequestUser { ClientUserId = User.GetUserId().ToString() },
                 ClientName = Localizer.GetString("ApplicationName"),
                 Products = AppSettings.PlaidSettings.Products,
-                Language = Language
-                    .English, //TODO: tie in the CultureManager to get the current culture and convert to the language enum
+                Language = Language.English.ToString(), 
                 CountryCodes = AppSettings.PlaidSettings.CountryCodes
             });
 

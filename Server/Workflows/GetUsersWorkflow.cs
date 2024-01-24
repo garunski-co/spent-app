@@ -13,6 +13,9 @@ public partial class GetUsersWorkflow : WorkflowBase
 {
     [AutoInject]
     private readonly ISystemClock _systemClock = default!;
+    
+    [AutoInject]
+    private readonly GetPlaidDataActivity _getPlaidDataActivity = default!;
 
     protected override void Build(IWorkflowBuilder builder)
     {
@@ -30,12 +33,7 @@ public partial class GetUsersWorkflow : WorkflowBase
                 },
                 new WriteLine(
                     new Input<string>($"Heartbeat workflow triggered at {_systemClock.UtcNow.LocalDateTime}")),
-                new SendHttpRequest
-                {
-                    Url = new(new Uri("https://reqres.in/api/users")),
-                    Method = new(HttpMethods.Get),
-                    ParsedContent = new(responseVariable)
-                }
+                _getPlaidDataActivity
             }
         };
     }

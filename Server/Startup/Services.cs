@@ -1,6 +1,11 @@
 ﻿using System.IO.Compression;
 using System.Net;
 using System.Net.Mail;
+using Elsa.EntityFrameworkCore.Common;
+using Elsa.EntityFrameworkCore.Extensions;
+using Elsa.EntityFrameworkCore.Modules.Management;
+using Elsa.EntityFrameworkCore.Modules.Runtime;
+using Elsa.Extensions;
 using Going.Plaid;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.HttpOverrides;
@@ -10,6 +15,7 @@ using Spent.Client.Core.Extensions;
 using Spent.Server.Extensions;
 using Spent.Server.Services;
 using Spent.Server.Settings;
+using Spent.Server.Workflows;
 
 namespace Spent.Server.Startup;
 
@@ -79,6 +85,8 @@ public static class Services
 
         services.AddTransient(sp => sp.GetRequiredService<IOptionsSnapshot<AppSettings>>().Value);
 
+        services.AddTransient<GetPlaidDataActivity>();
+
         services.AddEndpointsApiExplorer();
 
         services.AddSwaggerGen();
@@ -90,6 +98,22 @@ public static class Services
         services.AddHealthChecks(env, configuration);
 
         services.AddTransient<HtmlRenderer>();
+
+        services.AddElsa(elsa =>
+        {
+            var dbContextOptions = new ElsaDbContextOptions();
+            var postgresConnectionString = configuration.GetConnectionString("Default")!;
+
+            elsa.UseWorkflowManagement(management => management.UseEntityFrameworkCore(ef => ef.UsePostgreSql(postgresConnectionString, dbContextOptions)));
+            elsa.UseWorkflowRuntime(runtime => runtime.UseEntityFrameworkCore(ef => ef.UsePostgreSql(postgresConnectionString, dbContextOptions)));
+
+            elsa.UseQuartz();
+            elsa.UseScheduling(scheduling => scheduling.UseQuartzScheduler());
+
+            elsa.AddWorkflowsFrom<Program>();
+
+            elsa.AddActivitiesFrom<Program>();
+        });
 
         var fluentEmailServiceBuilder = services.AddFluentEmail(appSettings.EmailSettings.DefaultFromEmail,
             appSettings.EmailSettings.DefaultFromName);

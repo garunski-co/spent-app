@@ -3,16 +3,16 @@ using Going.Plaid;
 
 namespace Spent.Server.Workflows;
 
-public class GetPlaidDataActivity : CodeActivity<string>
+public partial class GetPlaidDataActivity : CodeActivity<string>
 {
     [AutoInject]
     private readonly PlaidClient _client = default!;
     
     [AutoInject]
-    protected ILogger<GetPlaidDataActivity> Logger = default!;
+    private ILogger<GetPlaidDataActivity> _logger = default!;
     
     protected override void Execute(ActivityExecutionContext context)
     {
-        Logger.LogInformation("HERE WE Go!");
+        _logger.LogInformation("HERE WE Go!");
     }
 }
